@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>assault_assaultpoint - Valve Developer Community</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Assault_assaultpoint","wgTitle":"Assault assaultpoint","wgCurRevisionId":219320,"wgRevisionId":219320,"wgArticleId":1776,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Source Base Entities","Point Entities","Entities","AI"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Assault_assaultpoint","wgRelevantArticleId":1776,"wgRequestId":"44f88165406dfcee85148a09","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.4"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Valve Developer Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://developer.valvesoftware.com/w/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Valve Developer Community Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Assault_assaultpoint rootpage-Assault_assaultpoint skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">assault_assaultpoint</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Valve Developer Community</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div style="position:relative;top:-32px;margin-bottom: -40px;float:right;text-align:right;padding:2px;line-height:11px;background:#262626;border:1px solid #65635F;border-bottom:0;"> </div>
+<div class="floatleft"><a href="/wiki/File:Assault_assaultpoint.png" class="image"><img alt="Assault assaultpoint.png" src="/w/images/9/9e/Assault_assaultpoint.png" width="64" height="64" /></a></div><b>assault_assaultpoint</b> is a <a href="/wiki/Point_entity" title="Point entity">point entity</a> available in all Source games. These entities form the body of an <a href="/wiki/Assault" title="Assault">assault</a> chain, specifying where the assault should go once it has begun. There can be any number of them in each chain. Make sure you are using ai <a href="/wiki/Node" title="Node">nodes</a>, otherwise you will have to have an assaultpoint for every single corner in your path.<div style="clear:both"></div>
+<div><span style="color:#b03434;display:table-cell;white-space:nowrap;padding-left:1em"><img alt="" src="/w/images/7/7d/Bug.png" width="10" height="12" /> <b>Bug:</b>&#160;</span><span style="display:table-cell;">Specifying an <code><a href="/wiki/Assault_rallypoint" title="Assault rallypoint">assault_rallypoint</a></code> as the next assault point will crash the game!</span></div>
+<div><span style="color:#b03434;display:table-cell;white-space:nowrap;padding-left:1em"><img alt="" src="/w/images/7/7d/Bug.png" width="10" height="12" /> <b>Bug:</b>&#160;</span><span style="display:table-cell;">When moving to an assault point partway through a chain, the <a href="/wiki/NPC" title="NPC">NPC</a> will go to the standing posture for a moment before continuing. This bug is fixed in the HL2 Episodes.</span></div>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">Unfortunately, there's no keyvalue to define a <i>range</i> at which an assaultpoint can be considered cleared. This means that if you have a large group of NPCs in an assault, the fact that they will continually attempt to move directly onto an assaultpoint, even if another NPC is standing there, can also break the illusion of realistic movement. Try making a trigger around your assaultpoint (<code><a href="/wiki/Trigger_once" title="Trigger once">once</a></code> or <code><a href="/wiki/Trigger_multiple" title="Trigger multiple">multiple</a></code>) that sends your assaultpoint a <code>SetForceClear</code> input with a fair delay time to make sure everyone is still grouped together.</span></div>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">Assault points only affect the journey <i>to</i> them, not <i>from</i> them.</span></div>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">NPCs will always turn to face in the direction the entity is set to when arriving at an assault point if they don't see an enemy before reaching the point. You can change the direction, indicated by a small yellow line, by changing the middle number of the <b>Pitch Yaw Roll</b> keyvalue.</span></div>
+<div style="margin:0.4em 1em 0.5em;"><strong style="display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/4/45/Tip.png" width="10" height="13" /> Tip:</strong><span style="display:table-cell;">Naming assault points the same name will cause NPCs to randomly select one.</span></div>
+<p>Not available in <a href="/wiki/Left_4_Dead" title="Left 4 Dead"><img alt="&lt;Left 4 Dead&gt;" src="/w/images/c/c0/L4D-16px.png" width="16" height="16" /></a><a href="/wiki/Left_4_Dead_2" title="Left 4 Dead 2"><img alt="&lt;Left 4 Dead 2&gt;" src="/w/images/9/93/L4D2-16px.png" width="16" height="16" /></a>.
+</p><p><img alt="" src="/w/images/9/95/Cpp.png" width="16" height="16" /> In code, it is represented by class <code>CAssaultPoint</code>, defined in <code>ai_behavior_assault.cpp</code>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Flags"><span class="tocnumber">1</span> <span class="toctext">Flags</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Keyvalues"><span class="tocnumber">2</span> <span class="toctext">Keyvalues</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Inputs"><span class="tocnumber">3</span> <span class="toctext">Inputs</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Outputs"><span class="tocnumber">4</span> <span class="toctext">Outputs</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Flags">Flags</span></h2>
+<ul><li>1: Clear this point upon arrival, UNCONDITIONALLY</li></ul>
+<dl><dd>Move on to the next point once reaching this one, regardless of any other influences.</dd></dl>
+<h2><span class="mw-headline" id="Keyvalues">Keyvalues</span></h2>
+<dl><dt> Assault Hint Group (assaultgroup)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Constrain the movement of the NPC(s) participating in the assault to this <a href="/wiki/Hint_group" title="Hint group" class="mw-redirect">hint group</a> once assault has begun.</dd>
+<dt> Next assault point (optional) (nextassaultpoint)  <code>&lt;<a href="/wiki/Targetname" title="Targetname">targetname</a>&gt;</code></dt>
+<dd> The <code>assault_assaultpoint</code> to move to next.</dd>
+<dt> Assault time out (assaulttimeout)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code></dt>
+<dd> This point is cleared when no enemies are seen for this long (specified in seconds). The NPC(s) at this assault point will scout for enemies this long before moving on.</dd>
+<dt> Clear on contact with enemies (clearoncontact)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> If the assaulting NPC meets enemies on its way to this point, it will consider the assault point cleared and target the next assault point in the chain.</dd>
+<dt> Allow diversion (allowdiversion)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> If the assault comes into contact with hostiles on the way to this assault point, divert to kill them and resume once the area appears clear.
+<ul><li>If it set to <b>Yes</b>, NPCs will chase any hostiles until they are dead or out of sight for the period set in the <b>Assault time out</b>.</li>
+<li>If this is set to <b>No</b>, assaulting NPCs will run non-stop to the next point, attacking enemies they can see but not chasing them.</li></ul></dd></dl>
+<dl><dt> Diversion Proximity (allowdiversionradius)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code></dt>
+<dd> If <b>Allow diversion</b> is set to <b>Yes</b>, NPC will only divert from assault to attack an enemy that is within this distance of the assault point. 0 means no limit.</dd>
+<dt> Never Timeout (nevertimeout)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> If set, the assault never ends for NPCs assaulting this point. Useful for forcing NPCs back to a point.</dd>
+<dt> Strict? (strict)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> If set, NPCs may not move to attack, avoid danger, or move out of the player's way.</dd>
+<dt> Force Crouch (forcecrouch)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> NPCs using this assault point are forced into crouching while holding it.</dd></dl>
+<div><span style="color:#b03434;display:table-cell;white-space:nowrap;padding-left:1em"><img alt="" src="/w/images/7/7d/Bug.png" width="10" height="12" /> <b>Bug:</b>&#160;</span><span style="display:table-cell;">This only works for NPCs that crouch as part of their natural AI, such as <a href="/wiki/Npc_alyx" title="Npc alyx">Alyx</a> and <a href="/wiki/Npc_combine_s" title="Npc combine s">Combine Soldiers</a>.</span></div>
+<dl><dt> Urgent (urgent)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> If set, NPCs will consider movement to this rally point as Urgent Navigation (ignoring <code><a href="/wiki/Prop_physics" title="Prop physics">prop_physics</a></code> blockers, eventually teleporting).</dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <a href="/wiki/Classname" title="Classname">Classname</a> (classname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> The classname defines the type of entity. Classnames can be changed using <code><a href="/wiki/AddOutput" title="AddOutput">AddOutput</a></code>, which will influence how the engine deals with the entity in certain circumstances.</dd>
+<dt> <a href="/wiki/Targetname" title="Targetname">Name</a> (targetname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> The name that other entities refer to this entity by.</dd>
+<dt> Global Entity Name (globalname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Name by which this entity is linked to another entity in a different map. When the player transitions to a new map, entities in the new map with globalnames matching entities in the previous map will have the previous map's state copied over their state.</dd>
+<dt> <a href="/wiki/Parent" title="Parent" class="mw-redirect">Parent</a> (parentname)  <code>&lt;<a href="/wiki/Targetname" title="Targetname">targetname</a>&gt;</code></dt>
+<dd> Specifies a movement parent. An entity will maintain its initial offset from its parent. An attachment point can be added to the end of the name, separated by a comma. <i>Every</i> entity can be parented, even point entities. Entities which are parented will be forced to transition to the next map, such as from a <code><a href="/wiki/Trigger_transition" title="Trigger transition">trigger_transition</a></code>. Some entities which aren't intended to be parented may not function correctly. <code><a href="/wiki/Phys_constraint" title="Phys constraint">phys_constraint</a></code> can be used as a workaround to parenting.</dd>
+<dt> <a href="/wiki/Origin" title="Origin" class="mw-redirect">Origin</a> (X Y Z) (origin)  <code>&lt;<a href="/wiki/Coordinates" title="Coordinates">coordinates</a>&gt;</code></dt>
+<dd> The position of this entity's center in the world. Rotating entities typically rotate around their origin.</dd>
+<dt> <a href="/wiki/Pitch_Yaw_Roll" title="Pitch Yaw Roll" class="mw-redirect">Pitch Yaw Roll</a> (X Y Z) (angles)  <code>&lt;<a href="/wiki/Angle" title="Angle" class="mw-redirect">angle</a>&gt;</code></dt>
+<dd> This entity's orientation in the world. Pitch is rotation around the Y axis, yaw is the rotation around the Z axis, roll is the rotation around the X axis.<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">This works on brush entities, although Hammer doesn't show the new angles.</span></div></dd>
+<dt> <a href="/wiki/Flag" title="Flag">Flags</a> (spawnflags)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code></dt>
+<dd> Toggles features of an entity, its specific number is determined by the combination of flags added.</dd>
+<dt> <a href="/wiki/ResponseContext" title="ResponseContext" class="mw-redirect">Response Contexts</a> (ResponseContext)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Pre-defined response system contexts for this entity. Format is <code>key:value,key:value,...</code>. Contexts may be <a href="/wiki/Filter_activator_context" title="Filter activator context">filtered</a>.</dd>
+<dt> <a href="/wiki/Effect_flags" title="Effect flags">Effects</a> (effects)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Combination of effect flags to use.</dd>
+<dt> Local Time (ltime)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> The local time of the entity, independent of the global clock. Used mainly for physics calculations.</dd>
+<dt> Next Think (nextthink)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Amount of time before the entity <a href="/wiki/Thinking" title="Thinking">thinks</a> again.</dd>
+<dt> Hammer ID (hammerid)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> The entity's <a href="/wiki/Hammer" title="Hammer" class="mw-redirect">Hammer</a> ID. Mainly used by plugins and debugging commands, such as <code><a href="/w/index.php?title=Ent_keyvalue&amp;action=edit&amp;redlink=1" class="new" title="Ent keyvalue (page does not exist)">ent_keyvalue</a></code>. Can be manually assigned with the "hammerid" or "id" keyvalue. Entities spawned at run-time are not assigned any Hammer ID.</dd>
+<dt> Disable for Xbox 360 (disableX360)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> If Yes, disables this entity on the Xbox 360 version of Source.</dd>
+<dt> Entity Scripts (vscripts)  <code>&lt;<a href="/wiki/VScript" title="VScript">scriptlist</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Space delimited list of <a href="/wiki/VScript" title="VScript">VScript</a> files (without file extension) that are executed after all entities have spawned. The scripts are all executed in the same script scope, later ones overwriting any identical variables and functions.</dd>
+<dt> Script think function (thinkfunction)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Name of a function in this entity's script which will be called automatically every 100 milliseconds (ten times a second) for the duration of the script. It can be used to create timers or to simulate autonomous behavior. The return value (if present) will set the time until the next call. Try to avoid <a href="/wiki/Expensive" title="Expensive">expensive</a> operations in this function, as it may cause performance problems.</dd>
+<dt> <a href="/wiki/Lag_Compensation" title="Lag Compensation" class="mw-redirect">Lag Compensation</a> (LagCompensate)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Set to <b>Yes</b> to lag compensate this entity. Should be used very sparingly!</dd>
+<dt> Is Automatic-Aim Target (is_autoaim_target)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#5eedaf;font-weight:bold;">(New with Counter-Strike: Global Offensive)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> If set to 1, this entity will slow down aiming movement for consoles and joystick controllers when the entity is under the crosshairs.</dd></dl>
+<h2><span class="mw-headline" id="Inputs">Inputs</span></h2>
+<dl><dt> <code>SetClearOnContact</code> &#160;<code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> Sets the <b>Clear on Contact with enemies</b> keyvalue. Accepts <code>1</code>/<code>0</code> or <code>Yes</code>/<code>No</code> as parameters.</dd>
+<dt> <code>SetAllowDiversion</code> &#160;<code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> Sets the <b>Allow Diversion</b> keyvalue. Accepts <code>1</code>/<code>0</code> or <code>Yes</code>/<code>No</code> as parameters.</dd>
+<dt> <code>SetForceClear</code> &#160;<code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> Set the <i>Force Clear</i> flag. NPCs who are currently running to the assault point will clear it immediately. NPCs who acquire it in the future will clear it automatically.</dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <code>Kill</code> </dt>
+<dd> Removes this entity and any entities parented to it from the world.</dd>
+<dt> <code>KillHierarchy</code> </dt>
+<dd> Functions the same as <code>Kill</code>, although this entity and any entities parented to it are killed on the same frame.</dd>
+<dt> <code>SetParent</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Move with this entity. See <a href="/wiki/Entity_Hierarchy_(parenting)" title="Entity Hierarchy (parenting)">Entity Hierarchy (parenting)</a>.</dd>
+<dt> <code>SetParentAttachment</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Change this entity to attach to a specific <a href="/wiki/Attachment" title="Attachment" class="mw-redirect">attachment</a> point on its parent. The entity will teleport so that the position of its root <a href="/wiki/Bone" title="Bone" class="mw-redirect">bone</a> matches that of the attachment.  Entities must be parented before being sent this input.</dd>
+<dt> <code>SetParentAttachmentMaintainOffset</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> As above, but without teleporting. The entity retains its position relative to the attachment at the time of the input being received.</dd>
+<dt> <code>ClearParent</code> </dt>
+<dd> Removes this entity from the the movement hierarchy, leaving it free to move independently.</dd>
+<dt> <code><a href="/wiki/AddOutput" title="AddOutput">AddOutput</a></code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Evaluates a keyvalue/output on this entity. <br />Format: <code>&lt;key&gt; &lt;value&gt;</code><br />Format: <code>&lt;output name&gt; &lt;targetname&gt;:&lt;inputname&gt;:&lt;parameter&gt;:&lt;delay&gt;:&lt;max times to fire, -1 means infinite&gt;</code></dd>
+<dt> <code>FireUser1</code> <span style="font-weight: normal;">to</span> <code>FireUser4</code></dt>
+<dd> Fire the <code>OnUser</code> outputs; see <a href="/wiki/User_Inputs_and_Outputs" title="User Inputs and Outputs">User Inputs and Outputs</a>.</dd>
+<dt> <code>Use</code> &#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Same as a player invoking <a href="/wiki/%2Buse" title="+use" class="mw-redirect">+use</a>; may not do anything. Can also be invoked by creating an output that does not specify an input.<br /> This input is not included in Valve's <a href="/wiki/FGD" title="FGD">FGDs</a>.</dd>
+<dt> <code>DispatchEffect</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Dispatches a special effect from the entity's origin. Removed and replaced entirely by the <a href="/wiki/Particle" title="Particle" class="mw-redirect">particle</a> system since <a href="/wiki/Left_4_Dead" title="Left 4 Dead"><img alt="&lt;Left 4 Dead&gt;" src="/w/images/c/c0/L4D-16px.png" width="16" height="16" /></a>.</dd>
+<dt> <code>DispatchResponse</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Dispatches a response to the entity. See <a href="/wiki/Response" title="Response">Response</a> and <a href="/wiki/Concept" title="Concept">Concept</a>.</dd>
+<dt> <code>AddContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Adds to the entity's list of <a href="/wiki/Response_System" title="Response System">response contexts</a>. Format is <code>&lt;key&gt;:&lt;value&gt;</code>.</dd>
+<dt> <code>RemoveContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Remove a context from this entity's list. The name should match the key of an existing context.</dd>
+<dt> <code>ClearContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Removes all contexts from this entity's list.</dd>
+<dt> <code>RunScriptFile</code> &#160;<code>&lt;<a href="/wiki/VScript" title="VScript">script</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Execute a <a href="/wiki/VScript" title="VScript">VScript</a> file from disk, without file extension. The script contents are merged with the script scope of the receiving entity.</dd>
+<dt> <code>RunScriptCode</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Execute a string of VScript source code in the scope of the entity receiving the input. String quotation may be needed when fired via console. <div><span style="color:#b03434;display:table-cell;white-space:nowrap;padding-left:1em"><img alt="" src="/w/images/7/7d/Bug.png" width="10" height="12" /> <b>Bug:</b>&#160;</span><span style="display:table-cell;"> In <a href="/wiki/Left_4_Dead_2" title="Left 4 Dead 2"><img alt="&lt;Left 4 Dead 2&gt;" src="/w/images/9/93/L4D2-16px.png" width="16" height="16" /></a>, the code is executed in the script scope of the entity that fires the output, <i>not</i> the one receiving the input.</span></div> <strong style="margin-left:1em; color:#D31B1B;white-space:nowrap;"><img alt="" src="/w/images/c/cb/Warning.png" width="10" height="12" /> Warning:&#160;</strong>Never try to pass string parameters to a script function with this input. It will corrupt the <a href="/wiki/VMF" title="VMF" class="mw-redirect">VMF</a> structure because of the nested quotation marks, which then must be removed manually with a text editor.</dd>
+<dt> <code>CallScriptFunction</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Execute a VScript function in the scope of the receiving entity.</dd>
+<dt> <code>SetLocalOrigin</code> &#160;<code>&lt;<a href="/wiki/Coordinates" title="Coordinates">coordinates</a>&gt;</code>&#160;<span style="color:#23B1E5;font-weight:bold;">(New with Portal 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Send this entity to a spot in the map. If the entity is parented to something, it will be offset from the parent by this amount.</dd>
+<dt> <code>SetLocalAngles</code> &#160;<code>&lt;<a href="/wiki/Angles" title="Angles" class="mw-redirect">angles</a>&gt;</code>&#160;<span style="color:#23B1E5;font-weight:bold;">(New with Portal 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Set this entity's angles.</dd></dl>
+<h2><span class="mw-headline" id="Outputs">Outputs</span></h2>
+<dl><dt> <code>OnArrival</code> </dt>
+<dd> Fires when a NPC arrives.</dd></dl>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">This can fire more than once since NPCs tend to divert from assault points to reload or avoid danger.</span></div>
+<dl><dt> <code>OnAssaultClear</code> </dt>
+<dd> Fires when the point is cleared (arriving and clearing can happen at completely different times).</dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <code>OnUser1</code> <span style="font-weight: normal;">to</span> <code>OnUser4</code></dt>
+<dd> These outputs each fire in response to the firing of the like-numbered <code>FireUser1</code> to <code>FireUser4</code> Input; see <a href="/wiki/User_Inputs_and_Outputs" title="User Inputs and Outputs">User Inputs and Outputs</a>.</dd></dl>
+
+<!-- 
+NewPP limit report
+Cached time: 20190401131953
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.316 seconds
+Real time usage: 0.333 seconds
+Preprocessor visited node count: 2736/1000000
+Preprocessor generated node count: 5053/1000000
+Post‐expand include size: 57489/2097152 bytes
+Template argument size: 23073/2097152 bytes
+Highest expansion depth: 10/40
+Expensive parser function count: 21/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  241.449      1 - -total
+ 37.57%   90.702     27 - Template:KV
+ 30.64%   73.986     25 - Template:IO
+ 30.49%   73.625      1 - Template:KV_BaseEntity
+ 27.87%   67.299      1 - Template:I_BaseEntity
+ 18.25%   44.070     44 - Template:KV_Type
+  9.20%   22.210      1 - Template:Lang
+  2.78%    6.711      1 - Template:Base_point
+  2.37%    5.723      7 - Template:L4D2_add
+  2.10%    5.068      3 - Template:Minititle
+-->
+
+<!-- Saved in parser cache with key developerwiki-mw_:pcache:idhash:1776-0!*!0!!en!5!* and timestamp 20190401131953 and revision id 219320
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://developer.valvesoftware.com/w/index.php?title=Assault_assaultpoint&amp;oldid=219320">https://developer.valvesoftware.com/w/index.php?title=Assault_assaultpoint&amp;oldid=219320</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Source_Base_Entities" title="Category:Source Base Entities">Source Base Entities</a></li><li><a href="/wiki/Category:Point_Entities" title="Category:Point Entities">Point Entities</a></li><li><a href="/wiki/Category:Entities" title="Category:Entities">Entities</a></li><li><a href="/wiki/Category:AI" title="Category:AI">AI</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Assault+assaultpoint" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Assault+assaultpoint" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Assault_assaultpoint"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:Assault_assaultpoint&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Assault_assaultpoint" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/w/index.php?title=Assault_assaultpoint&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Assault_assaultpoint&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Valve Developer Community [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li><li id="n-Source-SDK-index"><a href="/wiki/SDK_Docs">Source SDK index</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Support' aria-labelledby='p-Support-label'>
+			<h3 id='p-Support-label'>Support</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Getting-help"><a href="/wiki/Help:Contents">Getting help</a></li><li id="n-Source-SDK-FAQ"><a href="/wiki/Category:Source_SDK_FAQ">Source SDK FAQ</a></li><li id="n-Level-Design-FAQ"><a href="/wiki/Category:Level_Design_FAQ">Level Design FAQ</a></li><li id="n-SDK-Help-Forums"><a href="http://forums.steampowered.com/forums/forumdisplay.php?f=191" rel="nofollow">SDK Help Forums</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Steam_Community' aria-labelledby='p-Steam_Community-label'>
+			<h3 id='p-Steam_Community-label'>Steam Community</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Source-SDK-Hub"><a href="http://steamcommunity.com/app/211" rel="nofollow">Source SDK Hub</a></li><li id="n-Steam-Games"><a href="http://www.steampowered.com" rel="nofollow">Steam Games</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Assault_assaultpoint" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Assault_assaultpoint" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/w/index.php?title=Assault_assaultpoint&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=Assault_assaultpoint&amp;oldid=219320" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Assault_assaultpoint&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 September 2018, at 06:56.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-about"><a href="/wiki/Valve_Developer_Community:About" title="Valve Developer Community:About">About Valve Developer Community</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Valve_Developer_Community:Terms_of_use" title="Valve Developer Community:Terms of use">Terms of Use</a></li>
+											<li id="footer-places-legalnotices"><a href="/wiki/Valve_Developer_Community:Third_Party_Legal_Notices" title="Valve Developer Community:Third Party Legal Notices">Third Party Legal Notices</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":70});});</script>
+	</body>
+</html>

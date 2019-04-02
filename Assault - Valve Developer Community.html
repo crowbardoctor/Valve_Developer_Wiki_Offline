@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Assault - Valve Developer Community</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Assault","wgTitle":"Assault","wgCurRevisionId":218612,"wgRevisionId":218612,"wgArticleId":1761,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["AI"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Assault","wgRelevantArticleId":1761,"wgRequestId":"f91458a500a242ada6742049","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.4"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Valve Developer Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://developer.valvesoftware.com/w/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Valve Developer Community Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Assault rootpage-Assault skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Assault</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Valve Developer Community</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>The purpose of an assault is to make one or more NPC(s) tactically advance along a predesigned route, securing tactical points along the way. It is much more flexible than a <a href="/wiki/Path_corner" title="Path corner">path_corner</a> entity.
+</p><p>An assault consists of two or three component entities:
+</p>
+<ul><li> <a href="/wiki/Ai_goal_assault" title="Ai goal assault">ai_goal_assault</a> (1 per assault, optional)</li>
+<li> <a href="/wiki/Assault_rallypoint" title="Assault rallypoint">assault_rallypoint</a> (1 per NPC)</li>
+<li> <a href="/wiki/Assault_assaultpoint" title="Assault assaultpoint">assault_assaultpoint</a> (any number)</li></ul>
+<p>This article will show you the overall picture on how to set up an assault. (For entity specific information, see the related entity.)
+</p>
+<div style="margin:0.4em 1em 0.5em;"><strong style="display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/4/45/Tip.png" width="10" height="13" /> Tip:</strong><span style="display:table-cell;">Use the console command <code>ai_debug_assault</code> for basic visual information about where NPCs are headed to.</span></div>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Structure"><span class="tocnumber">1</span> <span class="toctext">Structure</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Advantages"><span class="tocnumber">2</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Major_options"><span class="tocnumber">3</span> <span class="toctext">Major options</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Example_map"><span class="tocnumber">4.1</span> <span class="toctext">Example map</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Prefabs"><span class="tocnumber">4.2</span> <span class="toctext">Prefabs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Notes"><span class="tocnumber">5</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#See_Also"><span class="tocnumber">6</span> <span class="toctext">See Also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Structure">Structure</span></h2>
+<p>An assault consists of an AI goal (the <a href="ai_goal_assault.html" title="Ai goal assault">ai_goal_assault</a> entity) gathering a set of one or more NPCs (called <i>actor(s)</i>) to one or more "rally point" locations (<a href="assault_rallypoint.html" title="Assault rallypoint">assault_rallypoint</a> entities) where they will normally await a cue to commence the assault. On this cue, they will proceed to the first "assault point" location (<a href="assault_assaultpoint.html" title="Assault assaultpoint">assault_assaultpoint</a> entity) to secure, or 'clear' it, and then proceed on to the next assault point (if any), clear it, and then proceed to the next, and so on.
+Clearing an assault point, by default, consists of standing on its location and ensuring that there are no hostiles in sight for the timeout period, but this is completely configurable.
+</p>
+<center><a href="images/thumb/Assault_diagram.png" class="image"><img alt="Assault diagram.png" src="images/thumb/Assault_diagram.png" width="659" height="271" /></a></center>
+<p>Assaults can be triggered in one of two ways:
+</p>
+<ol><li> When activated, an <b>ai_goal_assault</b> entity can send its <i>actor(s)</i> to the associated <i>assault_rallypoint(s)</i>, where they wait for the assault cue. This is the most common usage. The <i>ai_goal_assault</i> entity can either be activated by an <i>Activate</i> input, or set to start active through its <i>Start Active</i> keyvalue, which causes the assault to begin as soon as the map is loaded.</li>
+<li> <a href="Npc_combine_s.html" title="Npc combine s">Combine soldiers</a> may be instantly associated with a rally point without the use of an <i>ai_goal_assault</i> entity. Using the entity <a href="/wiki/Inputs_and_Outputs" title="Inputs and Outputs">I/O system</a>, you can fire the <b>Assault</b> input on the soldier, providing the name of the <i>assault_rallypoint</i> as an input parameter. When a Combine soldier receives this input, it will search for the specified <a href="/wiki/Assault_rallypoint" title="Assault rallypoint">assault_rallypoint</a> entity, move to it, and then proceed immediately to the associated <i>assault_assaultpoint</i>. Please note that although the <i>Assault</i> input can be sent to any NPC <i>it is only </i>supported<i> for Combine soldiers</i>. You may use wildcards when specifying the rally point in the parameter. You may also use the <i>priority</i> keyvalue of an <i>assault_rallypoint</i> entity as a parameter to influence this decision, if providing a wildcard which specifies more than one <i>assault_rallypoint</i> entity.</li></ol>
+<h2><span class="mw-headline" id="Advantages">Advantages</span></h2>
+<p>While an assault requires extra work to set up, and the end result is very similar to other ai entities, such as <a href="/wiki/Aiscripted_schedule" title="Aiscripted schedule">aiscripted_schedule</a>, assaults do allow for more flexibility than other scripting entities.
+</p>
+<ul><li> You can select a group of NPCs
+<ul><li> Other scripting options can do this too, but this often results in the entire group heading toward a specific point, or only one member of the group moving. To create similar results, each individual npc would need to be scripted.</li></ul></li>
+<li> More control
+<ul><li> With options such as "allow diversion" and "clear on contact", the mapper has more control of when an ai stops moving. Unlike an <a href="/wiki/Aiscripted_schedule" title="Aiscripted schedule">aiscripted_schedule</a> set to interrupt on "general", which can be broken by gunfire or other sounds.</li></ul></li>
+<li> An NPC will realistically stick to one place
+<ul><li> Without a combination of hintgrouping and moving to a <a href="/wiki/Path_corner" title="Path corner">path_corner</a> there aren't any other options to have an ai stay at one point. Also, unlike the hintgroup set up, the ai will move to avoid grenades or reload.</li></ul></li></ul>
+<h2><span class="mw-headline" id="Major_options">Major options</span></h2>
+<p>The assault behaviour offers a flexible degree of customisation among the entities that make up an assault. This list's purpose is to provide an overview of the major options (beyond entity placement). Consult each entity's individual page for more detailed information.
+</p>
+<ul><li> <b>ai_goal_assault</b>:</li></ul>
+<dl><dd>Keyvalue <b>AssaultCue</b>: Determines what will cause the NPC to move off their rally point and begin the assault.</dd></dl>
+<ul><li> <b>assault_rallypoint</b>:</li></ul>
+<dl><dd>Keyvalue <b>priority</b>: Determines how appealing the rally point will be to an NPC when it has multiple rally points to choose between.</dd>
+<dd>Keyvalue <b>assaultdelay</b>: Time to wait at rally point after assault cue, before beginning assault.</dd></dl>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">If <b>allowdiversion</b> is set on the next <a href="/wiki/Assault_assaultpoint" title="Assault assaultpoint">assault point</a>, an NPC can divert from the <a href="/wiki/Assault_rallypoint" title="Assault rallypoint">rally point</a> as well.</span></div>
+<ul><li> <b>assault_assaultpoint</b>:</li></ul>
+<dl><dd>Keyvalue <b>assaultgroup</b>: Constrain an NPC's hint node use to this hint group.</dd>
+<dd>Keyvalue <b>assaulttimeout</b>, <b>nevertimeout</b>: How long to wait without seeing enemies before considering the point cleared.</dd>
+<dd>Keyvalue <b>clearoncontact</b>: Whether to clear assault point if the NPC encounters enemies while moving to it.</dd>
+<dd>Keyvalue <b>allowdiversion</b>: Whether the NPC should move to engage enemies it encounters or ignore them and follow the assault points.</dd>
+<dd>Spawnflag <b>1</b>: Clear point upon arrival, unconditionally.</dd></dl>
+<h2><span class="mw-headline" id="Examples">Examples</span></h2>
+<h3><span class="mw-headline" id="Example_map">Example map</span></h3>
+<p><a rel="nofollow" class="external text" href="http://www.steamreview.org/external/vdc/assaults/assault_simple.zip">This example map</a> contains a single NPC on a linear chain using all the major options available to designers when moving NPCs from assaultpoint to assaultpoint. There are four points, and each is configured differently:
+</p>
+<ol><li> <b>Clear on contact with enemies</b> is enabled. When the NPC sees the hostiles, it clears out the assaultpoint and continues to 2.</li>
+<li> <b>Clear this point on arrival, UNCONDITIONALLY</b> is flagged. When the NPC reaches this point it clears it regardless of the fact that there are still hostiles in sight and begins to move towards 3.</li>
+<li> <b>Allow diversion</b> is set to <b>No</b>. The NPC will charge towards the assaultpoint without stopping or giving chase. It will however attack enemies in view.</li>
+<li> <b>Allow diversion</b> is set to <b>Yes</b>. The NPC will divert from moving to this point until there are no hostiles visible.</li></ol>
+<p>Note that the Metropolice cannot harm the NPC and will not attack the player in this example.
+</p>
+<h3><span class="mw-headline" id="Prefabs">Prefabs</span></h3>
+<p>The <a href="/wiki/Npc_metrocop_assault" title="Npc metrocop assault">npc_metrocop_assault</a> and the <a href="/wiki/Npc_soldier_assault" title="Npc soldier assault">npc_soldier_assault</a> prefabs contains complete setups of a mass assault of metrocops and soldiers respectively.
+</p>
+<h2><span class="mw-headline" id="Notes">Notes</span></h2>
+<ul><li> If "clear on contact" is set, a single enemy might clear not only the current assaultpoint but the next one(s). A consequence of this is that if an NPC encounters an enemy on the way to a "clear on contact" assaultpoint the assaulting NPC may never proceed to another rallypoint. This occurs regardless of the subsequent assaultpoints "Clear on contact" and "Allow diversion" settings.</li>
+<li> If "allow diversion" is set and the NPC encounters an enemy, the assaulting NPC will pause for a while after killing the enemy before proceeding. The article says that this pause is the length of the "timeout" setting, but in my tests it was several times as long.</li>
+<li> If an NPC encounters an enemy on the way to an assaultpoint marked "allow diversion" but not "clear on arrival" the assaulting NPC will be pausing twice. Mappers might need to consider this if timing is important.</li>
+<li> An assaultpoint with both "clear on contact" and "allow diversion" causes weirdness: if an enemy is encountered on the way to the assaultpoint the assaulting NPC will kill it, but then upon reaching the assaultpoint will not pursue or return fire from other enemies until the <i>next</i> assaultpoint is reached. In fact, the assaulting NPC doesn't even change direction to face the fire. This happens regardless of the "clear on arrival" or "never time out" settings.</li>
+<li> I didn't observe any effect of the "never time out" setting. However, all firefights were fairly brief, so it might not have had a chance to come into effect.</li>
+<li> All-settings-off is great for making the NPC dash to a point regardless of enemy fire and then attack everyone at the point.</li>
+<li> Having only "clear on arrival" on is great for making the NPC dash from point to point without pausing, regardless of enemy fire.</li>
+<li> The OnAssaultClear output is only fired for the <i>last</i> assaultpoint in a chain. All assaultpoints will fire their OnArrival output, however.</li>
+<li> The delay after a "Allow diversions" diversion is about 18 seconds for a 3-second "timeout" time.</li>
+<li> A diversion causes another such delay immediately upon reaching the assaultpoint, and then the assaultpoint OnArrive <i>re</i>-fires. If the NPC is again diverted before the timeout, the OnArrive output will fire again, <i>ad infinitum</i>. So don't spawn enemies during from the OnArrive output.</li>
+<li> If the first assaultpoint is set to "Clear on contact" and an enemy is sighted before reaching the assaultpoint, the assaulting NPC will never make it to the assaultpoint. If the subsequent assaultpoint has "Allow diversion" off, this will cause <i>that</i> (or perhaps the final) assaultpoint to fire the OnArrival output&#8212;despite the assaulting NPC being nowhere nearby and having not even gotten to the first assaultpoint, nor having yet finished dealing with the enemies. If, on the other hand, the second assaultpoint has "Allow diversion" on, no messages are sent whatsoever.</li>
+<li> In <a href="/wiki/Half-Life_2:_Episode_One" title="Half-Life 2: Episode One">Half Life 2: Episode One</a> and <a href="/wiki/Half-Life_2:_Episode_Two" title="Half-Life 2: Episode Two">Half Life 2: Episode Two</a> rally points behave differently than in <a href="/wiki/Half-Life_2" title="Half-Life 2">Half Life 2</a>. If there is an assault point with "Never Time Out" in the assault chain connecting to a rally point, than that rally point will be "locked" and unusable until the NPC on the chain dies.</li></ul>
+<h2><span class="mw-headline" id="See_Also">See Also</span></h2>
+<ul><li> <a href="/wiki/Dynamic_assaults" title="Dynamic assaults">Dynamic assaults</a> - A simpler system, for assaulting the player or other NPCs.</li></ul>
+
+<!-- 
+NewPP limit report
+Cached time: 20190402102712
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.032 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 49/1000000
+Preprocessor generated node count: 108/1000000
+Post‐expand include size: 737/2097152 bytes
+Template argument size: 267/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.048      1 - -total
+ 50.82%    2.057      1 - Template:Tip
+ 41.47%    1.679      1 - Template:Note
+-->
+
+<!-- Saved in parser cache with key developerwiki-mw_:pcache:idhash:1761-0!*!0!!en!5!* and timestamp 20190402102712 and revision id 218612
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://developer.valvesoftware.com/w/index.php?title=Assault&amp;oldid=218612">https://developer.valvesoftware.com/w/index.php?title=Assault&amp;oldid=218612</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Category</a>: <ul><li><a href="/wiki/Category:AI" title="Category:AI">AI</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Assault" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Assault" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Assault"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Assault"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Assault" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/w/index.php?title=Assault&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Assault&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Valve Developer Community [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li><li id="n-Source-SDK-index"><a href="/wiki/SDK_Docs">Source SDK index</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Support' aria-labelledby='p-Support-label'>
+			<h3 id='p-Support-label'>Support</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Getting-help"><a href="/wiki/Help:Contents">Getting help</a></li><li id="n-Source-SDK-FAQ"><a href="/wiki/Category:Source_SDK_FAQ">Source SDK FAQ</a></li><li id="n-Level-Design-FAQ"><a href="/wiki/Category:Level_Design_FAQ">Level Design FAQ</a></li><li id="n-SDK-Help-Forums"><a href="http://forums.steampowered.com/forums/forumdisplay.php?f=191" rel="nofollow">SDK Help Forums</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Steam_Community' aria-labelledby='p-Steam_Community-label'>
+			<h3 id='p-Steam_Community-label'>Steam Community</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Source-SDK-Hub"><a href="http://steamcommunity.com/app/211" rel="nofollow">Source SDK Hub</a></li><li id="n-Steam-Games"><a href="http://www.steampowered.com" rel="nofollow">Steam Games</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Assault" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Assault" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/w/index.php?title=Assault&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=Assault&amp;oldid=218612" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Assault&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 5 September 2018, at 02:16.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-about"><a href="/wiki/Valve_Developer_Community:About" title="Valve Developer Community:About">About Valve Developer Community</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Valve_Developer_Community:Terms_of_use" title="Valve Developer Community:Terms of use">Terms of Use</a></li>
+											<li id="footer-places-legalnotices"><a href="/wiki/Valve_Developer_Community:Third_Party_Legal_Notices" title="Valve Developer Community:Third Party Legal Notices">Third Party Legal Notices</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":117});});</script>
+	</body>
+</html>
