@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>ai_goal_assault - Valve Developer Community</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Ai_goal_assault","wgTitle":"Ai goal assault","wgCurRevisionId":219326,"wgRevisionId":219326,"wgArticleId":1772,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Source Base Entities","Point Entities","Entities","TODO","CONFIRM","AI"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Ai_goal_assault","wgRelevantArticleId":1772,"wgRequestId":"87e67a9e743a6bcd2174dd3f","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}"});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.vector.js"]);});</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cskins.vector.styles&amp;only=styles&amp;skin=vector"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="MediaWiki 1.27.4"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Valve Developer Community (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://developer.valvesoftware.com/w/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Valve Developer Community Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom"/>
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Ai_goal_assault rootpage-Ai_goal_assault skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">ai_goal_assault</h1>
+									<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Valve Developer Community</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div style="position:relative;top:-32px;margin-bottom: -40px;float:right;text-align:right;padding:2px;line-height:11px;background:#262626;border:1px solid #65635F;border-bottom:0;"> </div>
+<p><b>ai_goal_assault</b> is a <a href="/wiki/Point_entity" title="Point entity">point entity</a> available in all Source games. This entity specifies which NPCs are to carry out an <a href="/wiki/Assault" title="Assault">assault</a>, and triggers it when any conditions given are met. One goal can handle multiple rally points. Must be active to be able to be triggered.
+</p><p>Upon activation, the entity will round up all its actors (specified in a keyvalue), and instruct them to select their <code><a href="/wiki/Assault_rallypoint" title="Assault rallypoint">assault_rallypoint</a></code>(s) and move to it/them. Upon arrival at the rally point(s), each actor then begins waiting for an <b>Assault Cue</b>, unless instructed to assault immediately.
+</p><p>Upon the cue, it will then instruct all actors to begin moving on from their current rally point to the <code><a href="/wiki/Assault_assaultpoint" title="Assault assaultpoint">assault_assaultpoint</a></code> specified by the rally point.
+</p><p>This entity is not in <a href="/wiki/Left_4_Dead" title="Left 4 Dead"><img alt="&lt;Left 4 Dead&gt;" src="/w/images/c/c0/L4D-16px.png" width="16" height="16" /></a> <a href="/wiki/Left_4_Dead_2" title="Left 4 Dead 2"><img alt="&lt;Left 4 Dead 2&gt;" src="/w/images/9/93/L4D2-16px.png" width="16" height="16" /></a>.
+</p><p><img alt="" src="/w/images/9/95/Cpp.png" width="16" height="16" /> In code, it is represented by class <code>CAI_AssaultGoal</code>, defined in <code>ai_behavior_assault.cpp</code>.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Keyvalues"><span class="tocnumber">1</span> <span class="toctext">Keyvalues</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Inputs"><span class="tocnumber">2</span> <span class="toctext">Inputs</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Outputs"><span class="tocnumber">3</span> <span class="toctext">Outputs</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Keyvalues">Keyvalues</span></h2>
+<dl><dt> Rally Point Set (rallypoint)  <code>&lt;<a href="/wiki/Targetname" title="Targetname">targetname</a>&gt;</code></dt>
+<dd> The name of the <code>assault_rallypoint</code>(s) at which this assault will begin. This field can also support wildcards, so that you can enter the root name of all rally points for this assault followed by an asterisk '*', to match all with the same root.</dd></dl>
+<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">Each NPC needs its own rally point. You can still probably get away with naming all your rally points the same thing.</span></div>
+<dl><dt> Assault Cue (AssaultCue)  <code>&lt;choices&gt;</code></dt>
+<dd> Chooses when the goal is going to be set after this entity has been activated.
+<ul><li>1: Entity System Input (<code>BeginAssault</code>)</li>
+<li>2: Gunfire (When the entity 'hears' gunfire <strong style="color:#8BC53F">To do&#58;&#160;</strong>Tested with player weapons and <a href="/wiki/Ai_sound" title="Ai sound">ai_sound</a>, no results.)</li>
+<li>2: Don't wait for a cue. (Attack immediately after rallying finishes)</li></ul></dd></dl>
+<dl><dt> Rally Point Selection Method (RallySelectMethod)  <code>&lt;choices&gt;</code></dt>
+<dd> How NPCs will decide which rallypoint to move to.</dd>
+<dd>For games before Alien Swarm (including 2013 SDK):</dd></dl>
+<ul><li>0: Choose by priority. If there are multiple tied for priority, go to the closest one.</li>
+<li>1: Choose randomly</li>
+<li>2: If priority is tied, go to the point farthest away. <span style="color:#3E6D7F;font-weight:bold;">(New with Alien Swarm)</span></li></ul>
+<dl><dt> Branch Method (BranchMethod)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code>&#160;<span style="color:#3E6D7F;font-weight:bold;">(New with Alien Swarm)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> <div style="margin:0.4em 1em 0.5em;"><strong style="color:#8BC53F;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/2/2e/Confirm.png" width="10" height="13" /> Confirm:</strong><span style="display:table-cell;">Default (0) tells NPCs to pick randomly if they come across multiple <code>assault_assaultpoint</code>s they can use. 1 makes NPCs pick whichever is closest to them.</span></div></dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">AI_GoalEntity:</span></i>
+</p>
+<dl><dt> Actor(s) to affect (actor)  <code>&lt;<a href="/wiki/Target_name_or_class" title="Target name or class">target_name_or_class</a>&gt;</code></dt>
+<dd> The <a href="/wiki/Targetname" title="Targetname">targetname</a> or <a href="/wiki/Classname" title="Classname">classname</a> of any NPCs that will be included in this goal. <a href="/wiki/Wildcards" title="Wildcards" class="mw-redirect">Wildcards</a> are supported.</dd>
+<dt> Search Type (SearchType)  <code>&lt;choices&gt;</code></dt>
+<dd> What the <b>Actor(s) to affect</b> keyvalue targets by.
+<ul><li>0: Entity Name</li>
+<li>1: Classname</li></ul></dd></dl>
+<dl><dt> Start Active (StartActive)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code></dt>
+<dd> Set if goal should be active immediately.</dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <a href="/wiki/Classname" title="Classname">Classname</a> (classname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> The classname defines the type of entity. Classnames can be changed using <code><a href="/wiki/AddOutput" title="AddOutput">AddOutput</a></code>, which will influence how the engine deals with the entity in certain circumstances.</dd>
+<dt> <a href="/wiki/Targetname" title="Targetname">Name</a> (targetname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> The name that other entities refer to this entity by.</dd>
+<dt> Global Entity Name (globalname)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Name by which this entity is linked to another entity in a different map. When the player transitions to a new map, entities in the new map with globalnames matching entities in the previous map will have the previous map's state copied over their state.</dd>
+<dt> <a href="/wiki/Parent" title="Parent" class="mw-redirect">Parent</a> (parentname)  <code>&lt;<a href="/wiki/Targetname" title="Targetname">targetname</a>&gt;</code></dt>
+<dd> Specifies a movement parent. An entity will maintain its initial offset from its parent. An attachment point can be added to the end of the name, separated by a comma. <i>Every</i> entity can be parented, even point entities. Entities which are parented will be forced to transition to the next map, such as from a <code><a href="/wiki/Trigger_transition" title="Trigger transition">trigger_transition</a></code>. Some entities which aren't intended to be parented may not function correctly. <code><a href="/wiki/Phys_constraint" title="Phys constraint">phys_constraint</a></code> can be used as a workaround to parenting.</dd>
+<dt> <a href="/wiki/Origin" title="Origin" class="mw-redirect">Origin</a> (X Y Z) (origin)  <code>&lt;<a href="/wiki/Coordinates" title="Coordinates">coordinates</a>&gt;</code></dt>
+<dd> The position of this entity's center in the world. Rotating entities typically rotate around their origin.</dd>
+<dt> <a href="/wiki/Pitch_Yaw_Roll" title="Pitch Yaw Roll" class="mw-redirect">Pitch Yaw Roll</a> (X Y Z) (angles)  <code>&lt;<a href="/wiki/Angle" title="Angle" class="mw-redirect">angle</a>&gt;</code></dt>
+<dd> This entity's orientation in the world. Pitch is rotation around the Y axis, yaw is the rotation around the Z axis, roll is the rotation around the X axis.<div title="Information" style="margin:0.4em 1em 0.5em;"><strong style="color:#EDEDED;display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/c/cc/Note.png" width="10" height="13" /> Note:</strong><span style="display:table-cell;">This works on brush entities, although Hammer doesn't show the new angles.</span></div></dd>
+<dt> <a href="/wiki/Flag" title="Flag">Flags</a> (spawnflags)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code></dt>
+<dd> Toggles features of an entity, its specific number is determined by the combination of flags added.</dd>
+<dt> <a href="/wiki/ResponseContext" title="ResponseContext" class="mw-redirect">Response Contexts</a> (ResponseContext)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Pre-defined response system contexts for this entity. Format is <code>key:value,key:value,...</code>. Contexts may be <a href="/wiki/Filter_activator_context" title="Filter activator context">filtered</a>.</dd>
+<dt> <a href="/wiki/Effect_flags" title="Effect flags">Effects</a> (effects)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Combination of effect flags to use.</dd>
+<dt> Local Time (ltime)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> The local time of the entity, independent of the global clock. Used mainly for physics calculations.</dd>
+<dt> Next Think (nextthink)  <code>&lt;<a href="/wiki/Float" title="Float">float</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Amount of time before the entity <a href="/wiki/Thinking" title="Thinking">thinks</a> again.</dd>
+<dt> Hammer ID (hammerid)  <code>&lt;<a href="/wiki/Integer" title="Integer">integer</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> The entity's <a href="/wiki/Hammer" title="Hammer" class="mw-redirect">Hammer</a> ID. Mainly used by plugins and debugging commands, such as <code><a href="/w/index.php?title=Ent_keyvalue&amp;action=edit&amp;redlink=1" class="new" title="Ent keyvalue (page does not exist)">ent_keyvalue</a></code>. Can be manually assigned with the "hammerid" or "id" keyvalue. Entities spawned at run-time are not assigned any Hammer ID.</dd>
+<dt> Disable for Xbox 360 (disableX360)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> If Yes, disables this entity on the Xbox 360 version of Source.</dd>
+<dt> Entity Scripts (vscripts)  <code>&lt;<a href="/wiki/VScript" title="VScript">scriptlist</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Space delimited list of <a href="/wiki/VScript" title="VScript">VScript</a> files (without file extension) that are executed after all entities have spawned. The scripts are all executed in the same script scope, later ones overwriting any identical variables and functions.</dd>
+<dt> Script think function (thinkfunction)  <code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Name of a function in this entity's script which will be called automatically every 100 milliseconds (ten times a second) for the duration of the script. It can be used to create timers or to simulate autonomous behavior. The return value (if present) will set the time until the next call. Try to avoid <a href="/wiki/Expensive" title="Expensive">expensive</a> operations in this function, as it may cause performance problems.</dd>
+<dt> <a href="/wiki/Lag_Compensation" title="Lag Compensation" class="mw-redirect">Lag Compensation</a> (LagCompensate)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Set to <b>Yes</b> to lag compensate this entity. Should be used very sparingly!</dd>
+<dt> Is Automatic-Aim Target (is_autoaim_target)  <code>&lt;<a href="/wiki/Boolean" title="Boolean">boolean</a>&gt;</code>&#160;<span style="color:#5eedaf;font-weight:bold;">(New with Counter-Strike: Global Offensive)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> If set to 1, this entity will slow down aiming movement for consoles and joystick controllers when the entity is under the crosshairs.</dd></dl>
+<h2><span class="mw-headline" id="Inputs">Inputs</span></h2>
+<dl><dt> <code>BeginAssault</code> </dt>
+<dd> If the entity is active and this entity's <b>Assault Cue</b> keyvalue is set to <b>Entity System Input</b>, begin the assault. <div style="margin:0.4em 1em 0.5em;"><strong style="display:table-cell;text-align:right;white-space:nowrap;padding-right:0.3em;"><img alt="" src="/w/images/4/45/Tip.png" width="10" height="13" /> Tip:</strong><span style="display:table-cell;">This will cause NPCs to "skip over" the rally point if they aren't there already. Useful for using rally points for selecting actors.</span></div></dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">AI_GoalEntity:</span></i>
+</p>
+<dl><dt> <code>Activate</code> </dt>
+<dd> Make the goal active if it wasn't already. NPCs will begin taking orders.</dd>
+<dt> <code>Deactivate</code> </dt>
+<dd> Make goal inactive.</dd>
+<dt> <code>UpdateActors</code> &#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Tell the goal entity to re-check <b>Actor(s) to affect</b> in case any disappeared, or any new NPCs spawned.<sup style="color:#8BC53F;">&#91;<i>confirm</i>&#93;</sup></dd></dl>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <code>Kill</code> </dt>
+<dd> Removes this entity and any entities parented to it from the world.</dd>
+<dt> <code>KillHierarchy</code> </dt>
+<dd> Functions the same as <code>Kill</code>, although this entity and any entities parented to it are killed on the same frame.</dd>
+<dt> <code>SetParent</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Move with this entity. See <a href="/wiki/Entity_Hierarchy_(parenting)" title="Entity Hierarchy (parenting)">Entity Hierarchy (parenting)</a>.</dd>
+<dt> <code>SetParentAttachment</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Change this entity to attach to a specific <a href="/wiki/Attachment" title="Attachment" class="mw-redirect">attachment</a> point on its parent. The entity will teleport so that the position of its root <a href="/wiki/Bone" title="Bone" class="mw-redirect">bone</a> matches that of the attachment.  Entities must be parented before being sent this input.</dd>
+<dt> <code>SetParentAttachmentMaintainOffset</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> As above, but without teleporting. The entity retains its position relative to the attachment at the time of the input being received.</dd>
+<dt> <code>ClearParent</code> </dt>
+<dd> Removes this entity from the the movement hierarchy, leaving it free to move independently.</dd>
+<dt> <code><a href="/wiki/AddOutput" title="AddOutput">AddOutput</a></code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Evaluates a keyvalue/output on this entity. <br />Format: <code>&lt;key&gt; &lt;value&gt;</code><br />Format: <code>&lt;output name&gt; &lt;targetname&gt;:&lt;inputname&gt;:&lt;parameter&gt;:&lt;delay&gt;:&lt;max times to fire, -1 means infinite&gt;</code></dd>
+<dt> <code>FireUser1</code> <span style="font-weight: normal;">to</span> <code>FireUser4</code></dt>
+<dd> Fire the <code>OnUser</code> outputs; see <a href="/wiki/User_Inputs_and_Outputs" title="User Inputs and Outputs">User Inputs and Outputs</a>.</dd>
+<dt> <code>Use</code> &#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Same as a player invoking <a href="/wiki/%2Buse" title="+use" class="mw-redirect">+use</a>; may not do anything. Can also be invoked by creating an output that does not specify an input.<br /> This input is not included in Valve's <a href="/wiki/FGD" title="FGD">FGDs</a>.</dd>
+<dt> <code>DispatchEffect</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Dispatches a special effect from the entity's origin. Removed and replaced entirely by the <a href="/wiki/Particle" title="Particle" class="mw-redirect">particle</a> system since <a href="/wiki/Left_4_Dead" title="Left 4 Dead"><img alt="&lt;Left 4 Dead&gt;" src="/w/images/c/c0/L4D-16px.png" width="16" height="16" /></a>.</dd>
+<dt> <code>DispatchResponse</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Dispatches a response to the entity. See <a href="/wiki/Response" title="Response">Response</a> and <a href="/wiki/Concept" title="Concept">Concept</a>.</dd>
+<dt> <code>AddContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Adds to the entity's list of <a href="/wiki/Response_System" title="Response System">response contexts</a>. Format is <code>&lt;key&gt;:&lt;value&gt;</code>.</dd>
+<dt> <code>RemoveContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Remove a context from this entity's list. The name should match the key of an existing context.</dd>
+<dt> <code>ClearContext</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code></dt>
+<dd> Removes all contexts from this entity's list.</dd>
+<dt> <code>RunScriptFile</code> &#160;<code>&lt;<a href="/wiki/VScript" title="VScript">script</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Execute a <a href="/wiki/VScript" title="VScript">VScript</a> file from disk, without file extension. The script contents are merged with the script scope of the receiving entity.</dd>
+<dt> <code>RunScriptCode</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span></dt>
+<dd> Execute a string of VScript source code in the scope of the entity receiving the input. String quotation may be needed when fired via console. <div><span style="color:#b03434;display:table-cell;white-space:nowrap;padding-left:1em"><img alt="" src="/w/images/7/7d/Bug.png" width="10" height="12" /> <b>Bug:</b>&#160;</span><span style="display:table-cell;"> In <a href="/wiki/Left_4_Dead_2" title="Left 4 Dead 2"><img alt="&lt;Left 4 Dead 2&gt;" src="/w/images/9/93/L4D2-16px.png" width="16" height="16" /></a>, the code is executed in the script scope of the entity that fires the output, <i>not</i> the one receiving the input.</span></div> <strong style="margin-left:1em; color:#D31B1B;white-space:nowrap;"><img alt="" src="/w/images/c/cb/Warning.png" width="10" height="12" /> Warning:&#160;</strong>Never try to pass string parameters to a script function with this input. It will corrupt the <a href="/wiki/VMF" title="VMF" class="mw-redirect">VMF</a> structure because of the nested quotation marks, which then must be removed manually with a text editor.</dd>
+<dt> <code>CallScriptFunction</code> &#160;<code>&lt;<a href="/wiki/String" title="String">string</a>&gt;</code>&#160;<span style="color:#BFA828;font-weight:bold;">(New with Left 4 Dead 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Execute a VScript function in the scope of the receiving entity.</dd>
+<dt> <code>SetLocalOrigin</code> &#160;<code>&lt;<a href="/wiki/Coordinates" title="Coordinates">coordinates</a>&gt;</code>&#160;<span style="color:#23B1E5;font-weight:bold;">(New with Portal 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Send this entity to a spot in the map. If the entity is parented to something, it will be offset from the parent by this amount.</dd>
+<dt> <code>SetLocalAngles</code> &#160;<code>&lt;<a href="/wiki/Angles" title="Angles" class="mw-redirect">angles</a>&gt;</code>&#160;<span style="color:#23B1E5;font-weight:bold;">(New with Portal 2)</span>&#160;<b><a href="/wiki/This_Feature_is_Not_Available_by_Default" title="This Feature is Not Available by Default" class="mw-redirect">!FGD</a></b></dt>
+<dd> Set this entity's angles.</dd></dl>
+<h2><span class="mw-headline" id="Outputs">Outputs</span></h2>
+<p><i><span style="border-bottom:1px solid #3A3937;display:block">Base:</span></i>
+</p>
+<dl><dt> <code>OnUser1</code> <span style="font-weight: normal;">to</span> <code>OnUser4</code></dt>
+<dd> These outputs each fire in response to the firing of the like-numbered <code>FireUser1</code> to <code>FireUser4</code> Input; see <a href="/wiki/User_Inputs_and_Outputs" title="User Inputs and Outputs">User Inputs and Outputs</a>.</dd></dl>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul><li><a href="/wiki/Npc_metrocop_assault" title="Npc metrocop assault">npc_metrocop_assault</a> and <a href="/wiki/Npc_soldier_assault" title="Npc soldier assault">npc_soldier_assault</a> - Two <a href="/wiki/Prefabs" title="Prefabs" class="mw-redirect">prefabs</a> containing complete setups of a mass assault of metrocops and soldiers respectively.</li></ul>
+
+<!-- 
+NewPP limit report
+Cached time: 20190401194853
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.296 seconds
+Real time usage: 0.312 seconds
+Preprocessor visited node count: 2535/1000000
+Preprocessor generated node count: 4853/1000000
+Post‐expand include size: 56405/2097152 bytes
+Template argument size: 21412/2097152 bytes
+Highest expansion depth: 10/40
+Expensive parser function count: 21/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  231.816      1 - -total
+ 39.29%   91.079     24 - Template:KV
+ 31.00%   71.860     24 - Template:IO
+ 30.15%   69.886      1 - Template:KV_BaseEntity
+ 29.30%   67.922      1 - Template:I_BaseEntity
+ 17.14%   39.736     38 - Template:KV_Type
+  9.28%   21.521      1 - Template:Lang
+  5.43%   12.583      1 - Template:KV_GoalEntity
+  3.72%    8.632      1 - Template:I_GoalEntity
+  3.06%    7.092      1 - Template:Base_point
+-->
+
+<!-- Saved in parser cache with key developerwiki-mw_:pcache:idhash:1772-0!*!0!!en!5!* and timestamp 20190401194853 and revision id 219326
+ -->
+</div>					<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://developer.valvesoftware.com/w/index.php?title=Ai_goal_assault&amp;oldid=219326">https://developer.valvesoftware.com/w/index.php?title=Ai_goal_assault&amp;oldid=219326</a>"					</div>
+				<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="/wiki/Category:Source_Base_Entities" title="Category:Source Base Entities">Source Base Entities</a></li><li><a href="/wiki/Category:Point_Entities" title="Category:Point Entities">Point Entities</a></li><li><a href="/wiki/Category:Entities" title="Category:Entities">Entities</a></li><li><a href="/wiki/Category:AI" title="Category:AI">AI</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:TODO" title="Category:TODO">TODO</a></li><li><a href="/wiki/Category:CONFIRM" title="Category:CONFIRM">CONFIRM</a></li></ul></div></div>				<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:CreateAccount&amp;returnto=Ai+goal+assault" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Ai+goal+assault" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Ai_goal_assault"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+															<li  id="ca-talk" class="new"><span><a href="/w/index.php?title=Talk:Ai_goal_assault&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t" rel="discussion">Discussion</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label">
+							<span>Variants</span><a href="#"></a>
+						</h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Ai_goal_assault" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="/w/index.php?title=Ai_goal_assault&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Ai_goal_assault&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+							<div id="simpleSearch">
+							<input type="search" name="search" placeholder="Search" title="Search Valve Developer Community [f]" accesskey="f" id="searchInput"/><input type="hidden" value="Special:Search" name="title"/><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton"/><input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchButton" class="searchButton"/>							</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-mainpage"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main Page</a></li><li id="n-Source-SDK-index"><a href="/wiki/SDK_Docs">Source SDK index</a></li><li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li><li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Support' aria-labelledby='p-Support-label'>
+			<h3 id='p-Support-label'>Support</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Getting-help"><a href="/wiki/Help:Contents">Getting help</a></li><li id="n-Source-SDK-FAQ"><a href="/wiki/Category:Source_SDK_FAQ">Source SDK FAQ</a></li><li id="n-Level-Design-FAQ"><a href="/wiki/Category:Level_Design_FAQ">Level Design FAQ</a></li><li id="n-SDK-Help-Forums"><a href="http://forums.steampowered.com/forums/forumdisplay.php?f=191" rel="nofollow">SDK Help Forums</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Steam_Community' aria-labelledby='p-Steam_Community-label'>
+			<h3 id='p-Steam_Community-label'>Steam Community</h3>
+
+			<div class="body">
+									<ul>
+						<li id="n-Source-SDK-Hub"><a href="http://steamcommunity.com/app/211" rel="nofollow">Source SDK Hub</a></li><li id="n-Steam-Games"><a href="http://www.steampowered.com" rel="nofollow">Steam Games</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+						<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Ai_goal_assault" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li><li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Ai_goal_assault" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li><li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li><li id="t-print"><a href="/w/index.php?title=Ai_goal_assault&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li><li id="t-permalink"><a href="/w/index.php?title=Ai_goal_assault&amp;oldid=219326" title="Permanent link to this revision of the page">Permanent link</a></li><li id="t-info"><a href="/w/index.php?title=Ai_goal_assault&amp;action=info" title="More information about this page">Page information</a></li>					</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 September 2018, at 08:16.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-about"><a href="/wiki/Valve_Developer_Community:About" title="Valve Developer Community:About">About Valve Developer Community</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Valve_Developer_Community:Terms_of_use" title="Valve Developer Community:Terms of use">Terms of Use</a></li>
+											<li id="footer-places-legalnotices"><a href="/wiki/Valve_Developer_Community:Third_Party_Legal_Notices" title="Valve Developer Community:Third Party Legal Notices">Third Party Legal Notices</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-poweredbyico">
+							<a href="//www.mediawiki.org/"><img src="/w/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/w/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /w/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31"/></a>						</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"user":"ready","user.groups":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","site","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":71});});</script>
+	</body>
+</html>
